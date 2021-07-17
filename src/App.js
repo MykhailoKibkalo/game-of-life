@@ -5,6 +5,7 @@ import produce from "immer";
 const numRows = 30;
 const numCols = 70;
 
+
 const operations = [
     [0, 1],
     [0, -1],
@@ -27,9 +28,18 @@ const generateEmptyGrid = () => {
 
 function App() {
 
+
     const [grid, setGrid] = useState(() => {
         return generateEmptyGrid()
     })
+
+    let liveElement = 0;
+
+
+    for (let i = 0; i < grid.length; i++) {
+        liveElement += grid[i].reduce((a, b) => a + b)
+    }
+
 
     const [running, setRunning] = useState(false);
 
@@ -70,7 +80,7 @@ function App() {
             <div className='control-panel'>
 
                 <button
-                    className={ running ? 'btn__stop' : 'btn__start'}
+                    className={running ? 'btn__stop' : 'btn__start'}
                     onClick={() => {
                         setRunning(!running);
                         if (!running) {
@@ -107,6 +117,7 @@ function App() {
 
             </div>
 
+            <div className='counter'> Live cell:  {liveElement}</div>
 
             <div style={{
                 display: 'grid',
