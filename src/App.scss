@@ -1,0 +1,33 @@
+.btn {
+
+  margin: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px ;
+  background: coral;
+
+  &__stop{
+    margin: 10px;
+    border: none;
+    padding: 10px;
+    background: red;
+    border-radius: 10px ;
+
+  }
+
+  &__start{
+    margin: 10px;
+    border: none;
+    padding: 10px;
+    background: green;
+    border-radius: 10px ;
+
+  }
+
+
+}
+
+.control-panel{
+  display: flex;
+  justify-content: center;
+}
